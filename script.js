@@ -67,9 +67,6 @@ class Game {
 
             this.pai.style.top = `${contador}%`;
             this.pai.style.transform = "translateY(-60%)";
-            this.record++;
-            this.score.innerHTML = `Score: ${this.record - 1}`;
-
 
         }
 
@@ -82,15 +79,13 @@ class Game {
 
             this.pai2.style.top = `${contador}%`;
             this.pai2.style.transform = "translateY(-60%)";
-            this.record++;
-            this.score.innerHTML = 
-            `Score: ${this.record - 1}`;
-            
 
         }
 
         if(this.olhador2 == 20 || this.olhador == 20){
+            this.record++;
             const m = new Audio("./somdemoeda.mp3").play();
+            this.score.innerHTML = `Score: ${this.record}`;
         }
 
 

@@ -30,6 +30,7 @@ h1:hover {
 
 h2 {
     margin-left: 5px;
+    user-select: none;
 }
 
 .container {
