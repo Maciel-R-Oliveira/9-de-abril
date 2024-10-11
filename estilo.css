@@ -43,6 +43,7 @@ h2 {
     overflow: hidden;
     background-size: cover;
     background-size: cover;
+    margin: 50px;
 
 }
 
@@ -148,4 +149,30 @@ a {
 
 a:hover {
     opacity: 1;
+}
+
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 20px;
+    }
+
+    h2 {
+        font-size: 16px;
+    }
+
+    .container {
+        width: 95%;
+        height: 50vh;
+        margin: 50px;
+    }
+
+    .quadrado {
+        width: 15vw;
+        height: 8vw;
+    }
+
+    .inimigo, .inimigo2, .inimigo3, .inimigo4,.container_inimigo,.container_inimigo2 {
+        width: 40px;
+        
+    }
 }
