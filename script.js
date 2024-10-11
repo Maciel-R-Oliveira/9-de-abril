@@ -2,10 +2,10 @@ let gameInstance = null;
 
 class Game {
     constructor() {
-        this.quadrado = document.querySelector(".quadrado");
+        this.aviao = document.querySelector(".aviao");
         this.arena = document.querySelector(".container");
-        this.posicaoInimigo1 = 100;  // Substituindo olhador
-        this.posicaoInimigo2 = 100;  // Substituindo olhador2
+        this.posicaoInimigo1 = 100;
+        this.posicaoInimigo2 = 100;
         this.p = 25;
         this.tempo;
         this.queda;
@@ -14,13 +14,13 @@ class Game {
         this.record = 0;
         this.iniciarInimigos();
         this.adicionarEventos();
-        this.atualizarPosicaoQuadrado();
+        this.atualizarPosicaoaviao();
     }
 
     iniciarInimigos() {
         this.arena.innerHTML = "";
 
-        this.quadrado.style.backgroundImage = "url(./aviao.png)"
+        this.aviao.style.backgroundImage = "url(./aviao.png)"
         this.pai = document.createElement("div");
         this.pai.setAttribute("class", "container_inimigo");
 
@@ -47,7 +47,7 @@ class Game {
 
         this.arena.appendChild(this.pai);
         this.arena.appendChild(this.pai2);
-        this.arena.appendChild(this.quadrado);
+        this.arena.appendChild(this.aviao);
         this.arena.appendChild(this.score);
         this.record = 0;
         this.score.innerHTML = `Score: ${this.record}`;
@@ -94,7 +94,7 @@ class Game {
         if (e.key === "w" || e.key === " ") {
             if (this.p < 85) {
                 this.p += 18;
-                this.quadrado.style.bottom = `${this.p}%`;
+                this.aviao.style.bottom = `${this.p}%`;
             }
         }
     }
@@ -102,7 +102,7 @@ class Game {
     handleClick() {
         if (this.p < 85) {
             this.p += 18;
-            this.quadrado.style.bottom = `${this.p}%`;
+            this.aviao.style.bottom = `${this.p}%`;
         }
     }
 
@@ -113,17 +113,17 @@ class Game {
         document.addEventListener("click", this.clickHandler);
     }
 
-    atualizarPosicaoQuadrado() {
+    atualizarPosicaoaviao() {
         this.queda = setInterval(() => {
             if (this.p >= -1) {
                 this.p -= 0.5;
-                this.quadrado.style.bottom = `${this.p}%`;
+                this.aviao.style.bottom = `${this.p}%`;
             }
         }, 10);
     }
 
     colisao() {
-        const a = this.quadrado.getBoundingClientRect();
+        const a = this.aviao.getBoundingClientRect();
         const b = this.pai.querySelector(".inimigo").getBoundingClientRect();
         const c = this.pai.querySelector(".inimigo2").getBoundingClientRect();
         const d = this.pai2.querySelector(".inimigo3").getBoundingClientRect();
@@ -166,9 +166,9 @@ class Game {
         const link = "https://media.tenor.com/5acZjLl1OTAAAAAi/explosion-deltarune.gif"
         const audio = new Audio("./explosao.mp3");
         audio.play();
-        this.quadrado.style.backgroundImage = `url(${link})`;
+        this.aviao.style.backgroundImage = `url(${link})`;
         setTimeout(() => {
-            this.quadrado.style.backgroundImage = "url()";
+            this.aviao.style.backgroundImage = "url()";
         }, 200);
         setTimeout(() => { this.arena.appendChild(this.play); }, 500)
         this.record = 0;
@@ -181,7 +181,7 @@ const h1 = document.createElement("h1");
 h1.innerText = "Play";
 arena.appendChild(h1);
 
-h1.addEventListener("click", () => {
+h1.addEventListener("click", (e) => {
     if (!gameInstance) {
         gameInstance = new Game();
         h1.innerText = "";

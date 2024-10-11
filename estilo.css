@@ -47,7 +47,7 @@ h2 {
 
 }
 
-.quadrado {
+.aviao {
     background-image: url("aviao.png");
     background-position: center;
     background-size: cover;
@@ -166,7 +166,7 @@ a:hover {
         margin: 50px;
     }
 
-    .quadrado {
+    .aviao {
         width: 15vw;
         height: 8vw;
     }
