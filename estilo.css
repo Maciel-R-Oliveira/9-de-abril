@@ -35,7 +35,7 @@ h2 {
 .container {
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("cidade.jpg");
     border: 3px dotted white;
-    width: 700px;
+    width: 560px;
     height: 500px;
     position: relative;
     overflow: hidden;
